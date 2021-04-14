@@ -1,0 +1,92 @@
+<h1 id="tableLabel">Residents</h1>
+
+<p *ngIf="!residents"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="residents">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Residential Property</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let resident of residents">
+      <td>{{ resident.id }}</td>
+      <td>
+        <input type="text"
+               class="form-control"
+               [(ngModel)]="resident.firstName" />
+      </td>
+      <td>
+        <input type="text"
+               class="form-control"
+               [(ngModel)]="resident.lastName" />
+
+      </td>
+      <td>
+        <input type="text"
+               class="form-control"
+               [(ngModel)]="resident.residentialProperty" />
+      </td>
+      <td>
+        <button type="button" id="delete" class="btn btn-danger" (click)="deleteResident(resident.id)">Delete</button>
+        &nbsp;
+        <button type="button" id="delete" class="btn btn-primary" (click)="updateResident(resident)">Update</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h1 id="tableLabel">Residential Properties</h1>
+
+<p *ngIf="!residentialProperties"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="residentialProperties">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Price</th>
+      <th>Bedrooms</th>
+      <th>Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let residentialProperty of residentialProperties">
+      <td>{{ residentialProperty.id }}</td>
+      <td>{{ residentialProperty.price }}</td>
+      <td>{{ residentialProperty.bedrooms }}</td>
+      <td>
+        <button type="button" id="delete" class="btn btn-danger" (click)="deleteResidentialProperty(resident.id)">Delete</button>
+        &nbsp;
+        <button type="button" id="delete" class="btn btn-primary" (click)="updateResidentialProperty(resident.id)">Update</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h1 id="tableLabel">Residential Property Types</h1>
+
+<p *ngIf="!residentialPropertiesTypes"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="residentialPropertiesTypes">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Type</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let residentialPropertyType of residentialPropertiesTypes">
+      <td>{{ residentialPropertyType.id }}</td>
+      <td>{{ residentialPropertyType.type }}</td>
+     
+    </tr>
+  </tbody>
+</table>
